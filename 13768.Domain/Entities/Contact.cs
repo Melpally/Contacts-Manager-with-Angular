@@ -47,17 +47,10 @@
         /// </summary>
         public DateTime DateOfBirth { get; set; }
 
-        //TODO: configure using the configure using entity type configuration
-
         /// <summary>
         /// Defines the required foreign key property for the <see cref="Team"/> attribute.
         /// </summary>
         public int TeamId { get; set; }
-
-        /// <summary>
-        /// Defines the required reference navigation to principal.
-        /// </summary>
-        public Team Team { get; set; } = null!;
 
         /// <summary>
         /// Defines optional foreign key property of the manager attribute.
@@ -72,7 +65,7 @@
         /// <summary>
         /// Defines collection navigation containing dependents of the manager to employees.
         /// </summary>
-        public ICollection<Contact> Reports { get; } = new List<Contact>();
+        public ICollection<Contact>? Subordinates { get; }
 
     }
 }

@@ -2,18 +2,19 @@
 {
     public sealed class Team
     {
+        /// <summary>
+        /// Defines the unique identifier of the entity
+        /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Defines the department or team name
+        /// </summary>
         public required string Name { get; set; }
 
         /// <summary>
-        /// Defines the collection navigation containing dependents for <see cref="Contact"/>.
+        /// Defines the company foreign key for the team
         /// </summary>
-        public ICollection<Contact> Contacts { get; } = new List<Contact>();
-
         public int CompanyId { get; set; }
-
-        public Company Company { get; set; } = null!;
-
-        //public int ManagerId { get; set; }
     }
 }
