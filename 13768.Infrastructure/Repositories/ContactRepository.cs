@@ -1,5 +1,4 @@
-﻿using _13768.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using _13768.Application.Dtos;
 
 namespace _13768.Infrastructure.Repositories
 {
@@ -12,5 +11,28 @@ namespace _13768.Infrastructure.Repositories
             _dataContext = dataContext;
         }
 
+        public void CreateContact(ContactDto dto)
+        {
+
+        }
+
+        public ContactDto GetContact(int id)
+        {
+            return new ContactDto();
+        }
+        public ICollection<ContactDto> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateContact(ContactDto contact)
+        {
+
+        }
+
+        public void DeleteContact(ContactDto contact)
+        {
+
+        }
     }
 }
