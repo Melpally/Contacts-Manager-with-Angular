@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _13768.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace _13768.Application.Interfaces
 {
     public interface ICompanyRepository
     {
+        public void CreateCompany(Company company);
+        public Company? GetCompany(int id);
+        public Task<List<Company>> GetAllAsync();
+        public void UpdateCompany(Company company);
+        public void DeleteCompany(Company company);
+
     }
 }

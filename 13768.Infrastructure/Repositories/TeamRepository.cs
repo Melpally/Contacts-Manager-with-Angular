@@ -1,8 +1,10 @@
-﻿using _13768.Application.Dtos;
+﻿using _13768.Application.Interfaces;
+using _13768.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace _13768.Infrastructure.Repositories
 {
-    public class TeamRepository
+    public class TeamRepository : ITeamRepository
     {
         protected readonly DataContext _dataContext;
 
@@ -11,28 +13,30 @@ namespace _13768.Infrastructure.Repositories
             _dataContext = dataContext;
         }
 
-        public void Create(TeamDto dto)
+        public void Create(Team team)
         {
-
+            _dataContext.Teams.Add(team);
+            _dataContext.SaveChanges();
         }
 
-        public TeamDto Get(int id)
+        public Team? Get(int id)
         {
-            throw new NotImplementedException();
-        }
-        public ICollection<TeamDto> GetAll()
-        {
-            throw new NotImplementedException();
+            return _dataContext.Teams.Find(id);
         }
 
-        public void Update(TeamDto dto)
+        public Task<List<Team>> GetAllAsync()
         {
-
+            return _dataContext.Teams.AsNoTracking().ToListAsync();
         }
 
-        public void Delete(TeamDto dto)
+        public void Update(Team team)
         {
+            _dataContext.Teams.Update(team);
+        }
 
+        public void Delete(Team team)
+        {
+            _dataContext.Teams.Remove(team);
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using _13768.Application.Dtos;
+﻿using _13768.Application.Interfaces;
+using _13768.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace _13768.Infrastructure.Repositories
 {
-    public class CompanyRepository
+    public class CompanyRepository : ICompanyRepository
     {
         protected readonly DataContext _dataContext;
 
@@ -11,29 +13,30 @@ namespace _13768.Infrastructure.Repositories
             _dataContext = dataContext;
         }
 
-        public void CreateCompany(ContactDto dto)
+        public void CreateCompany(Company company)
         {
-
+            _dataContext.Companies.Add(company);
+            _dataContext.SaveChanges();
         }
 
-        public CompanyDto GetCompany(int id)
+        public Company? GetCompany(int id)
         {
-            var company = new CompanyDto{ Name = "Random" };
-            return company;
-        }
-        public ICollection<CompanyDto> GetAll()
-        {
-            throw new NotImplementedException();
+            return _dataContext.Companies.Find(id);
         }
 
-        public void UpdateCompany(CompanyDto company)
+        public Task<List<Company>> GetAllAsync()
         {
-
+            return _dataContext.Companies.AsNoTracking().ToListAsync();
         }
 
-        public void DeleteCompany(CompanyDto company)
+        public void UpdateCompany(Company company)
         {
+            _dataContext.Companies.Update(company);
+        }
 
+        public void DeleteCompany(Company company)
+        {
+            _dataContext.Companies.Remove(company);
         }
     }
 }

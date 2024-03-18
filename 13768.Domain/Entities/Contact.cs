@@ -60,7 +60,7 @@
         /// <summary>
         /// Defines the optional reference navigation to principal of type <see cref="Contact"/>.
         /// </summary>
-        public Contact? Manager { get; set; }
+        public Contact? Manager { get; }
 
         /// <summary>
         /// Defines collection navigation containing dependents of the manager to employees.
