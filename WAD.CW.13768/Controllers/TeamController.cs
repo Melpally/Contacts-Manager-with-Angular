@@ -9,14 +9,14 @@ namespace WAD.CW._13768.Controllers
     public class TeamController : ControllerBase
     {
         // GET: api/<TeamController> all
-        [HttpGet]
+        [HttpGet("GetTeam")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/<TeamController>/5
-        [HttpGet("{id}")]
+        [HttpGet("GetTeamById")]
         public string Get(int id)
         {
             return "value";

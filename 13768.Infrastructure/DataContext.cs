@@ -9,6 +9,11 @@ namespace _13768.Infrastructure;
 /// </summary>
 public class DataContext : DbContext
 {
+    public DataContext()
+    {
+            
+    }
+
     public DataContext(DbContextOptions<DataContext> options)
         : base(options)
     {
@@ -45,7 +50,7 @@ public class DataContext : DbContext
 
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("WAD.Database.13768");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-JC5GS3F6\\SQLEXPRESS;Initial Catalog=WAD.DB.13768; User Id=malika; Password=malika.temurova;TrustServerCertificate=true;");
         }
     }
 }
