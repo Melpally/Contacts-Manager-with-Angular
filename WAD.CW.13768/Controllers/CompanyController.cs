@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using _13768.Application.Dtos;
+using _13768.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WAD.CW._13768.Controllers
 {
@@ -8,25 +8,59 @@ namespace WAD.CW._13768.Controllers
     [ApiController]
     public class CompanyController : ControllerBase
     {
-        // GET: api/<CompanyController> - get all
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly ICompanyService _service;
+        public CompanyController(ICompanyService companyService)
         {
-            return new string[] { "value1", "value2" };
+            _service = companyService;
         }
 
-        // GET api/<CompanyController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        /// <summary>
+        /// Gets the company by the unique identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("GetCompanyById/{id}")]
+        public IActionResult Get([FromRoute] int id)
         {
-            return "value";
+            var details = _service.GetCompany(id);
+            if (details != null)
+            {
+                return Ok(details);
+            }
+
+            return NotFound();
         }
 
-        // POST api/<CompanyController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        /// <summary>
+        /// Retrieve the list of companies from the database.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
         {
+            var result = await _service.GetAllAsync();
+            return Ok(result);
         }
 
+        [HttpPost("Create")]
+        public IActionResult Post([FromForm] CompanyDto dto)
+        {
+            _service.CreateCompany(dto);
+            return Created("Post", dto);
+        }
+
+        [HttpPost("Update/{id}")]
+        public IActionResult Update([FromForm] CompanyDto dto, [FromRoute] int id)
+        {
+            _service.UpdateCompany(id, dto);
+            return Ok(dto);
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            _service.DeleteCompany(id);
+            return Ok("Deleted");
+        }
     }
 }

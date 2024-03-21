@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    width: 510px;
+    height: fit-content;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.mini-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    border: 1px dotted black;
+}

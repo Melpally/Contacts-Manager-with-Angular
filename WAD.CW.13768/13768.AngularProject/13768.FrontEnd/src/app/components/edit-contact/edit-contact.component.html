@@ -1,0 +1,53 @@
+<form class="form-group">
+    <h1>Edit</h1>
+    
+    <span>
+        <label for="name">Contact Name: </label>
+        <input name="name" class="form-control" required id="name" [(ngModel)]="newContact.name" value="newContact.name" >
+    </span>
+
+    <span>
+        <label for="email">Contact Email: </label>
+        <input name="email" id="email" [(ngModel)]="newContact.email" value="newContact.email" type="email">
+    </span>
+    
+    <span>
+        <label for="phone">Contact Phone: </label>
+        <input name="phone" id="phone" [(ngModel)]="newContact.phone" value="newContact.phone"  type="tel">
+    </span>
+    <span class="managerCheckbox">
+        <label for="isManager">Is the person manager?</label>
+        <input name="isManager" type="checkbox" [(ngModel)]="newContact.isManager">
+    </span>
+    <span>
+        <label for="address">Contact Address: </label>
+        <input name="address" id="address" [(ngModel)]="newContact.address" value="newContact.address" >
+    </span>
+    
+    <span>
+        <label for="title">Contact Job Title: </label>
+        <input name="title" id="title" [(ngModel)]="newContact.jobTitle" value="newContact.jobTitle">
+    </span>
+    
+    <span>
+        <label for="dob">Contact Date of Birth: </label>
+        <input name="dob" id="dob" [(ngModel)]="newContact.dateOfBirth" value="newContact.dateOfBirth" type="datetime-local">
+    </span>
+    
+    <span>
+        <label for="manager">Contact Manager: </label>
+    <select name="manager" [(ngModel)]="newContact.reportsTo" >
+        <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}}</option>
+    </select>
+    <br>
+    </span>
+    
+    <span>
+        <label for="team">Contact Team: </label>
+    <select name="team" [(ngModel)]="newContact.teamId">
+        <option *ngFor="let team of teams" [value]="newContact.teamId">{{team.name}}</option>
+    </select>
+    </span>
+    
+    <button type="button" class="btn" (click)="editContact()">Save</button>
+</form>

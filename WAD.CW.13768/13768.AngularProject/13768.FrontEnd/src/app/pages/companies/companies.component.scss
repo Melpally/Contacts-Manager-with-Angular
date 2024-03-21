@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    width: 510px;
+    height: fit-content;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.mini-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    border: 1px dotted black;
+}
+.create-container {
+    margin: auto;
+    
+    align-items: center;
+}
+.create-container a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid black;
+    margin-top: 10px;
+    width: 170px;
+    padding: 10px;
+    background-color: gray;
+    color: black;
+}
+button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+}

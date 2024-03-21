@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    width: 400px;
+    height: 100%;
+    border: 1px dashed black;
+}
+.info-container {
+    flex-direction: column;
+    display: flex;
+
+}
+button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+}

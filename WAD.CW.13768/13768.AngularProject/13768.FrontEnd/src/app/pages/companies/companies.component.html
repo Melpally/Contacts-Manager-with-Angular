@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="mini-container" *ngFor="let company of companies">
+        <div>
+            Name:
+            <h1>{{company.name}}</h1>
+            Website:
+            <p>{{company.website}}</p>
+        </div>
+        <div>
+            <button type="button" (click)="edit(company.id)">Edit</button>
+            <button type="button" (click)="delete(company.id)">Delete</button>
+        </div>
+    </div>
+    <div class="create-container">
+        <a type="button" href="createCompany">Create new one?</a>
+    </div>
+    
+</div>

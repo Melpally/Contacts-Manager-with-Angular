@@ -1,0 +1,12 @@
+<div *ngIf="contacts.length == 0">
+    <h1>No contacts for now</h1>
+    <a href="createContact">Create new one?</a>
+</div>
+<div class="container" *ngFor="let contact of contacts">
+    
+    <app-contact [contact]="contact"></app-contact>
+    
+</div>
+<div class="create-container">
+    <a class="create" type="button" href="createContact">Create new one?</a>
+</div>

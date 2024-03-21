@@ -1,1 +1,14 @@
-<p>company.form works!</p>
+<form class="form-group">
+    <h1>Add New Company</h1>    
+    <span>
+        <label for="name">Company Name: </label>
+        <input name="name" class="form-control" required id="name" [(ngModel)]="newCompany.name" placeholder="Name">
+    </span>
+
+    <span>
+        <label for="web">Company Website: </label>
+        <input name="web" id="web" [(ngModel)]="newCompany.website" placeholder="Website" type="text">
+    </span>
+
+    <button type="button" class="btn" (click)="createCompany()">Create</button>
+</form>

@@ -1,1 +1,21 @@
-<p>contact works!</p>
+<div class="container">
+    <div class="avatar">
+        <img src={{contact.avatar}} alt="Avatar">
+    </div>
+    <div class="info-container">
+        <div class="name-info">
+            <h2>{{contact.name}}, {{contact.jobTitle}}</h2>
+            <p><a href={{company.website}}>{{company.name}}</a>, {{team.name}}</p>
+        </div>
+        <div class="phone-info">
+            <p>{{contact.phone}}, {{contact.address}}</p>
+            <p>{{contact.dateOfBirth}}</p>
+        </div>
+        <div class="icons-tooltip">
+            <button type="button" (click)="edit()">Edit</button>
+            <button type="button" (click)="delete()">Delete</button>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,1 +1,53 @@
-<p>contact.form works!</p>
+<form class="form-group">
+    <h1>Create</h1>    
+    <span>
+        <label for="name">Contact Name: </label>
+        <input name="name" class="form-control" required id="name" [(ngModel)]="newContact.name" placeholder="Name">
+    </span>
+
+    <span>
+        <label for="email">Contact Email: </label>
+        <input name="email" id="email" [(ngModel)]="newContact.email" placeholder="Email" type="email">
+    </span>
+    
+    <span>
+        <label for="phone">Contact Phone: </label>
+        <input name="phone" id="phone" [(ngModel)]="newContact.phone" placeholder="Phone" type="tel">
+    </span>
+    <span class="managerCheckbox">
+        <label for="isManager">Is the person manager?</label>
+        <input name="isManager" type="checkbox" [(ngModel)]="newContact.isManager">
+    </span>
+    <span>
+        <label for="address">Contact Address: </label>
+        <input name="address" id="address" [(ngModel)]="newContact.address" placeholder="Address">
+    </span>
+    
+    <span>
+        <label for="title">Contact Job Title: </label>
+        <input name="title" id="title" [(ngModel)]="newContact.jobTitle" placeholder="Job Title">
+    </span>
+    
+    <span>
+        <label for="dob">Contact Date of Birth: </label>
+        <input name="dob" id="dob" [(ngModel)]="newContact.dateOfBirth" placeholder="Date of Birth" type="datetime-local">
+    </span>
+    
+    <span>
+        <label for="manager">Contact Manager: </label>
+    
+    <select name="manager" [(ngModel)]="newContact.reportsTo" >
+        <option *ngFor="let manager of managers" [value]="manager.id">{{manager.name}} </option>
+    </select>
+    <br>
+    </span>
+    
+    <span>
+        <label for="team">Contact Team: </label>
+    <select name="team" [(ngModel)]="newContact.teamId">
+        <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+    </select>
+    </span>
+    
+    <button type="button" class="btn" (click)="createContact()">Create</button>
+</form>

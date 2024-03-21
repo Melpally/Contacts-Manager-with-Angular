@@ -1,0 +1,14 @@
+<form class="form-group">
+    <h1>Edit Company</h1>    
+    <span>
+        <label for="name">Company Name: </label>
+        <input name="name" class="form-control" required id="name" [(ngModel)]="company.name" value="company.name">
+    </span>
+
+    <span>
+        <label for="web">Company Website: </label>
+        <input name="web" id="web" [(ngModel)]="company.website" value="company.website" type="text">
+    </span>
+
+    <button type="button" class="btn" (click)="editCompany()">Save</button>
+</form>

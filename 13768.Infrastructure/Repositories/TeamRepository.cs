@@ -1,6 +1,8 @@
-﻿using _13768.Application.Interfaces;
+﻿using _13768.Application.Dtos;
+using _13768.Application.Interfaces;
 using _13768.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace _13768.Infrastructure.Repositories
 {
@@ -21,22 +23,30 @@ namespace _13768.Infrastructure.Repositories
 
         public Team? Get(int id)
         {
-            return _dataContext.Teams.Find(id);
+            return _dataContext.Teams.FirstOrDefault(x => x.Id == id);
         }
 
         public Task<List<Team>> GetAllAsync()
         {
-            return _dataContext.Teams.AsNoTracking().ToListAsync();
+            return _dataContext.Teams.ToListAsync();
         }
 
-        public void Update(Team team)
+        public void Update(int id, TeamDto team)
         {
-            _dataContext.Teams.Update(team);
+            var entity = Get(id);
+
+            if (entity != null)
+            {
+                entity.CompanyId = team.CompanyId;
+                entity.Name = team.Name;
+            }
+            _dataContext.SaveChanges();
         }
 
         public void Delete(Team team)
         {
             _dataContext.Teams.Remove(team);
+            _dataContext.SaveChanges();
         }
     }
 }

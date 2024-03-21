@@ -21,6 +21,11 @@ public class ContactDto
     public string? Phone { get; set; }
 
     /// <summary>
+    /// Defines the manager flag of the object.
+    /// </summary>
+    public bool IsManager { get; set; }
+
+    /// <summary>
     /// Defines the notes for the contact to store additional details about the contact.
     /// </summary>
     public string? Notes { get; set; }

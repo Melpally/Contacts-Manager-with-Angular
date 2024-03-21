@@ -25,6 +25,7 @@ namespace _13768.Application.Services
                 Avatar = contact.Avatar,
                 Address = contact.Address,
                 JobTitle = contact.JobTitle,
+                IsManager = contact.IsManager,
                 ReportsTo = contact.ReportsTo,
                 DateOfBirth = contact.DateOfBirth
             };
@@ -48,6 +49,11 @@ namespace _13768.Application.Services
             return _contactRepository.GetAllAsync();
         }
 
+        public Task<List<Contact>> GetAllManagers()
+        {
+            return _contactRepository.GetAllManagersAsync();
+        }
+
         public Contact? GetContact(int id)
         {
             return _contactRepository.GetContact(id);
@@ -55,27 +61,8 @@ namespace _13768.Application.Services
 
         public void UpdateContact(int id, ContactDto dto)
         {
-            var contact = _contactRepository.GetContact(id);
-
-            if (contact != null)
-            {
-                var entity = new Contact
-                {
-                    Id = id,
-                    Name = dto.Name,
-                    Email = dto.Email,
-                    Notes = dto.Notes,
-                    Phone = dto.Phone,
-                    TeamId = dto.TeamId,
-                    Avatar = dto.Avatar,
-                    Address = dto.Address,
-                    JobTitle = dto.JobTitle,
-                    ReportsTo = dto.ReportsTo,
-                    DateOfBirth = dto.DateOfBirth
-                };
-
-                _contactRepository.UpdateContact(entity);
-            }
+            _contactRepository.UpdateContact(id, dto);
+            
         }
     }
 }

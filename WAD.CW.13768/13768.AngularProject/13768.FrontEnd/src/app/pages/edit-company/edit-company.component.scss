@@ -1,0 +1,32 @@
+.form-group input {
+    width: 100%;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    align-self: stretch;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border-color: black;
+    box-shadow: none;
+    font-size: 20px;
+}
+.form-group label {
+    font-size: 20px;
+}
+.form-group {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+}
+.btn {
+    width: 300px;
+    height: 45px;
+    padding: 8px;
+    border-radius: 5%;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+}

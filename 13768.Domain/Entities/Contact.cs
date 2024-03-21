@@ -58,6 +58,10 @@
         public int? ReportsTo { get; set; }
 
         /// <summary>
+        /// Defines the property to check if the contact is a manager.
+        /// </summary>
+        public bool IsManager { get; set; }
+        /// <summary>
         /// Defines the optional reference navigation to principal of type <see cref="Contact"/>.
         /// </summary>
         public Contact? Manager { get; }

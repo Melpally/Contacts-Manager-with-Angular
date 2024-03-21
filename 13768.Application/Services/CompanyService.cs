@@ -43,17 +43,8 @@ namespace _13768.Application.Services
 
         public void UpdateCompany(int id, CompanyDto dto)
         {
-            var entity = _companyRepository.GetCompany(id);
+            _companyRepository.UpdateCompany(id, dto);
             
-            if (entity != null)
-            {
-                var company = new Company {
-                    Id = id, 
-                    Name = dto.Name,
-                    Website = dto.Website };
-
-                _companyRepository.UpdateCompany(company);
-            }
         }
     }
 }

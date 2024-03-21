@@ -1,9 +1,5 @@
-﻿using _13768.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _13768.Application.Dtos;
+using _13768.Domain.Entities;
 
 namespace _13768.Application.Interfaces
 {
@@ -11,7 +7,7 @@ namespace _13768.Application.Interfaces
     {
         public void Create(Team team);
         public Team? Get(int id);
-        public void Update(Team team);
+        public void Update(int id, TeamDto team);
         public Task<List<Team>> GetAllAsync();
         public void Delete(Team team);
     }
